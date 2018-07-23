@@ -16,3 +16,5 @@
   * [express](https://expressjs.com/)
   * [mongoose](https://www.google.com)
   
+## Preview
+![Blog-Preview](images/Untitled.png "Blog-Preview")
