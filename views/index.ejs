@@ -1,0 +1,70 @@
+<% include ./partials/header %>
+
+
+<div class="ui main text container">
+    <center><div class="ui yellow huge header">Blog Posts</div></center>
+        <div class="ui top attached segment">
+            <div class="ui divided items">
+                <% allBlogs.forEach(function(blog){ %>
+                    <div class="item">
+                        <div class="ui small image">
+                          <img class="ui centered rounded image" src="<%= blog.image %>" />
+                        </div>
+                        <div class="content">
+                            <div class="header"><%= blog.title %></div>
+                            <div class="meta">
+                                <span><%= blog.date.toDateString() %></span>
+                            </div>
+                            <div class="description">
+                               <p><%- blog.body.substring(0, 100) %>...</p>
+                            </div>
+                            <a class="ui purple basic button" href="/blogs/<%= blog._id %>">Read More</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--CONTACT FORM-->
+<div id="contact">CONTACT US</div>
+
+<div id="contactForm">
+
+  <h1>Any Queries Or Just want to get in touch </h1>
+  <small>I'll get back to you as quickly as possible</small>
+  
+  <form action="#">
+    <input placeholder="Name" type="text" required />
+    <input placeholder="Email" type="email" required />
+    <input placeholder="Subject" type="text" required />
+    <textarea placeholder="Comment"></textarea>
+    <input class="formBtn" type="submit" />
+    <input class="formBtn" type="reset" />
+  </form>
+</div>
+
+
+<script>
+
+$(function() {
+  
+  // contact form animations
+  $('#contact').click(function() {
+    $('#contactForm').fadeToggle();
+  })
+  $(document).mouseup(function (e) {
+    var container = $("#contactForm");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.fadeOut();
+    }
+  });
+  
+});
+</script>
+
+<% include ./partials/footer %>
