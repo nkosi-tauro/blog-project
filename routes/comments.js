@@ -6,6 +6,8 @@ var middleware = require("../middleware");
 
 //---------------COMMENT PART ---------------------------
 //CREATE ROUTE
+//AUTH
+//01001110 01101011 01101111 01110011 01101001
 router.post("/", middleware.isLoggedIn, function(req, res){
     //find the post by ID
     Blog.findById(req.params.id, function(err, foundBlog) {

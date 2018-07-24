@@ -31,6 +31,8 @@ router.get("/login", function(req, res) {
     res.render("login", {message: req.flash("error")});
 });
 
+
+//01001110 01101011 01101111 01110011 01101001
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/blogs",
     failureRedirect: "/login"

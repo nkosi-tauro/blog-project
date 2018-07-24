@@ -22,6 +22,8 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 //CREATE ROUTE
 router.post("/", middleware.isLoggedIn, function(req, res){
     req.body.blog.body = req.sanitize(req.body.blog.body);
+    //AUTH
+    //01001110 01101011 01101111 01110011 01101001
     //create blog
     Blog.create(req.body.blog, function(err, newBlog){
         if(err){

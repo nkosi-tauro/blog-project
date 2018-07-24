@@ -29,6 +29,7 @@ app.use(flash());
 //Passport Config
 app.use(require("express-session")({
     secret: "This blog is made by nkosi",
+    //01001110 01101011 01101111 01110011 01101001
     resave: false,
     saveUninitialized: false
 }));
