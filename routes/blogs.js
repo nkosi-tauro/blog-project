@@ -19,6 +19,18 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("new"); 
 });
 
+
+//Archive Route
+router.get("/archives", function(req, res){
+    Blog.find({}, function(err, blogs){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("archives", {allBlogs: blogs, currentUser: req.user});
+        }
+    })
+});
+
 //CREATE ROUTE
 router.post("/", middleware.isLoggedIn, function(req, res){
     req.body.blog.body = req.sanitize(req.body.blog.body);
